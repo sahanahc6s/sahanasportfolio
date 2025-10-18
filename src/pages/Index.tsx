@@ -96,53 +96,115 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center pt-20 px-6">
-        <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="animate-fade-in space-y-6">
+      <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl"></div>
+        </div>
+
+        {/* Grid Pattern Overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none"></div>
+
+        <div className="container mx-auto grid md:grid-cols-2 gap-16 items-center relative z-10">
+          <div className="animate-fade-in space-y-8">
             <div className="inline-block">
-              <span className="text-primary text-sm font-semibold tracking-wider uppercase">— Introduction</span>
+              <span className="text-primary text-sm font-bold tracking-[0.2em] uppercase bg-primary/10 px-4 py-2 rounded-full border border-primary/20">
+                Introduction
+              </span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-              Sahana HC<span className="text-primary">.</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground">
-              Java Full Stack Developer
+            
+            <div className="space-y-4">
+              <h1 className="text-6xl md:text-8xl font-extrabold leading-none tracking-tight">
+                <span className="bg-gradient-to-r from-foreground via-foreground to-muted-foreground bg-clip-text text-transparent">
+                  Sahana HC
+                </span>
+                <span className="text-primary">.</span>
+              </h1>
+              
+              <div className="flex items-center gap-3">
+                <div className="h-1 w-12 bg-gradient-to-r from-primary to-accent rounded-full"></div>
+                <p className="text-2xl md:text-3xl font-semibold text-muted-foreground">
+                  Java Full Stack Developer
+                </p>
+              </div>
+            </div>
+
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl">
+              Passionate about creating <span className="text-accent font-semibold">efficient</span>, <span className="text-accent font-semibold">scalable</span>, and <span className="text-accent font-semibold">user-focused</span> software solutions while continuously strengthening technical expertise.
             </p>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-              Passionate about creating efficient, scalable, and user-focused software solutions while continuously strengthening technical expertise.
-            </p>
-            <div className="flex gap-4 pt-4">
+
+            <div className="flex flex-wrap gap-4 pt-6">
               <Button 
                 onClick={() => scrollToSection('projects')}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground shadow-lg shadow-primary/30 px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/40"
               >
                 View My Work
+                <ExternalLink className="ml-2 w-5 h-5" />
               </Button>
               <Button 
                 onClick={() => scrollToSection('contact')}
                 variant="outline"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                className="border-2 border-border hover:border-primary text-foreground hover:text-primary bg-card/50 backdrop-blur-sm px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:bg-card"
               >
                 Contact Me
               </Button>
             </div>
-            <div className="flex gap-4 pt-4">
-              <a href="https://github.com/sahanahc6s" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                <Github className="w-5 h-5" />
-              </a>
-              <a href="https://linkedin.com/in/sahanahc" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                <Linkedin className="w-5 h-5" />
-              </a>
+
+            <div className="flex items-center gap-6 pt-6">
+              <span className="text-muted-foreground text-sm font-medium">Connect with me:</span>
+              <div className="flex gap-4">
+                <a 
+                  href="https://github.com/sahanahc6s" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="p-3 rounded-xl bg-card border border-border hover:border-primary text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110 hover:shadow-lg"
+                >
+                  <Github className="w-5 h-5" />
+                </a>
+                <a 
+                  href="https://linkedin.com/in/sahanahc" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="p-3 rounded-xl bg-card border border-border hover:border-primary text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110 hover:shadow-lg"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
+              </div>
             </div>
           </div>
-          <div className="animate-fade-in-scale flex justify-center">
-            <div className="relative">
-              <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full"></div>
-              <img 
-                src={profileImage} 
-                alt="Sahana HC" 
-                className="relative w-80 h-80 md:w-96 md:h-96 rounded-2xl object-cover border-4 border-primary/30 shadow-2xl"
-              />
+
+          <div className="animate-fade-in-scale flex justify-center md:justify-end">
+            <div className="relative group">
+              {/* Glowing Background */}
+              <div className="absolute -inset-4 bg-gradient-to-r from-primary via-accent to-primary opacity-30 blur-3xl rounded-full group-hover:opacity-50 transition-opacity duration-500"></div>
+              
+              {/* Rotating Border Effect */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary via-accent to-primary rounded-2xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+              
+              {/* Profile Image */}
+              <div className="relative">
+                <img 
+                  src={profileImage} 
+                  alt="Sahana HC" 
+                  className="relative w-80 h-80 md:w-[450px] md:h-[450px] rounded-2xl object-cover shadow-2xl group-hover:scale-105 transition-transform duration-500"
+                />
+                
+                {/* Overlay Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent rounded-2xl"></div>
+                
+                {/* Floating Badge */}
+                <div className="absolute -bottom-6 -right-6 bg-card border-2 border-primary rounded-2xl px-6 py-4 shadow-xl backdrop-blur-sm">
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 bg-accent rounded-full animate-pulse"></div>
+                    <div>
+                      <p className="text-xs text-muted-foreground font-medium">Available for</p>
+                      <p className="text-sm font-bold text-primary">New Projects</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
