@@ -211,29 +211,71 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-24 px-6 bg-card">
-        <div className="container mx-auto max-w-6xl">
-          <span className="text-primary text-sm font-semibold tracking-wider uppercase">— About Me</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-8">Background & Education</h2>
+      <section id="about" className="relative py-24 px-6 bg-card overflow-hidden">
+        {/* Background Decoration */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+        
+        <div className="container mx-auto max-w-6xl relative z-10">
+          <div className="inline-block mb-4">
+            <span className="text-primary text-sm font-bold tracking-[0.2em] uppercase bg-primary/10 px-4 py-2 rounded-full border border-primary/20">
+              About Me
+            </span>
+          </div>
+          <h2 className="text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+            Background & Education
+          </h2>
+          <div className="h-1 w-24 bg-gradient-to-r from-primary to-accent rounded-full mb-12"></div>
           
           <div className="grid md:grid-cols-2 gap-12 mt-12">
-            <div className="space-y-6">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Enthusiastic and detail-oriented Java Full Stack Developer with a strong foundation in Core Java, HTML, CSS, JavaScript, and SQL. Skilled in designing and integrating web applications using Spring and Spring Boot frameworks with database connectivity through JDBC and Hibernate.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Currently developing RESTful APIs to enhance backend proficiency. Passionate about creating efficient, scalable, and user-focused software solutions while continuously strengthening technical expertise.
-              </p>
+            <div className="space-y-6 animate-fade-in">
+              <div className="relative pl-6 border-l-2 border-primary/30">
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Enthusiastic and detail-oriented <span className="text-accent font-semibold">Java Full Stack Developer</span> with a strong foundation in Core Java, HTML, CSS, JavaScript, and SQL. Skilled in designing and integrating web applications using <span className="text-accent font-semibold">Spring and Spring Boot</span> frameworks with database connectivity through JDBC and Hibernate.
+                </p>
+              </div>
+              <div className="relative pl-6 border-l-2 border-accent/30">
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Currently developing <span className="text-primary font-semibold">RESTful APIs</span> to enhance backend proficiency. Passionate about creating efficient, scalable, and user-focused software solutions while continuously strengthening technical expertise.
+                </p>
+              </div>
             </div>
-            <Card className="p-8 bg-secondary border-border">
-              <h3 className="text-2xl font-bold mb-4">Education</h3>
-              <div className="space-y-2">
-                <p className="text-lg font-semibold text-foreground">Bachelor of Engineering</p>
-                <p className="text-primary">Electronics and Communication</p>
-                <p className="text-muted-foreground">Proudhadevaraya Institute of Technology</p>
-                <p className="text-muted-foreground">(Affiliated with VTU) – Hosapete, India</p>
-                <p className="text-sm text-muted-foreground mt-2">Dec 2021 – May 2025</p>
-                <p className="text-lg font-bold text-primary mt-4">CGPA: 8.9</p>
+            
+            <Card className="relative p-8 bg-gradient-to-br from-secondary via-secondary to-secondary/80 border-2 border-primary/20 shadow-xl hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 group animate-fade-in-scale overflow-hidden">
+              {/* Decorative Elements */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-all duration-500"></div>
+              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-accent/10 rounded-full blur-2xl"></div>
+              
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-2 bg-primary/20 rounded-lg">
+                    <Database className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold">Education</h3>
+                </div>
+                
+                <div className="space-y-4">
+                  <div>
+                    <p className="text-xl font-bold text-foreground">Bachelor of Engineering</p>
+                    <p className="text-lg text-primary font-semibold">Electronics and Communication</p>
+                  </div>
+                  
+                  <div className="pt-2 pb-4 border-t border-border/50">
+                    <p className="text-muted-foreground font-medium">Proudhadevaraya Institute of Technology</p>
+                    <p className="text-sm text-muted-foreground">(Affiliated with VTU) – Hosapete, India</p>
+                  </div>
+                  
+                  <div className="flex items-center justify-between pt-2">
+                    <p className="text-sm text-muted-foreground">Dec 2021 – May 2025</p>
+                  </div>
+                  
+                  <div className="mt-6 p-4 bg-primary/10 rounded-xl border border-primary/30">
+                    <p className="text-sm text-muted-foreground mb-1">Academic Performance</p>
+                    <p className="text-3xl font-bold text-primary">CGPA: 8.9</p>
+                    <div className="mt-2 h-2 bg-background/50 rounded-full overflow-hidden">
+                      <div className="h-full w-[89%] bg-gradient-to-r from-primary to-accent rounded-full"></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </Card>
           </div>
@@ -241,59 +283,129 @@ const Index = () => {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-24 px-6">
-        <div className="container mx-auto max-w-6xl">
-          <span className="text-primary text-sm font-semibold tracking-wider uppercase">— Experience</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-12">Professional Journey</h2>
+      <section id="experience" className="relative py-24 px-6 overflow-hidden">
+        {/* Background Decoration */}
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+        
+        <div className="container mx-auto max-w-6xl relative z-10">
+          <div className="inline-block mb-4">
+            <span className="text-primary text-sm font-bold tracking-[0.2em] uppercase bg-primary/10 px-4 py-2 rounded-full border border-primary/20">
+              Experience
+            </span>
+          </div>
+          <h2 className="text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+            Professional Journey
+          </h2>
+          <div className="h-1 w-24 bg-gradient-to-r from-primary to-accent rounded-full mb-12"></div>
           
-          <div className="space-y-8">
-            {experiences.map((exp, index) => (
-              <Card key={index} className="p-8 bg-card border-border hover:border-primary/50 transition-all duration-300">
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                  <div>
-                    <h3 className="text-2xl font-bold text-foreground">{exp.role}</h3>
-                    <p className="text-primary font-semibold">{exp.company}</p>
+          <div className="relative">
+            {/* Timeline Line */}
+            <div className="hidden md:block absolute left-8 top-8 bottom-8 w-0.5 bg-gradient-to-b from-primary via-accent to-primary/20"></div>
+            
+            <div className="space-y-8">
+              {experiences.map((exp, index) => (
+                <Card 
+                  key={index} 
+                  className="relative p-8 md:ml-20 bg-card border-2 border-border hover:border-primary/50 shadow-lg hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 group animate-fade-in overflow-hidden"
+                  style={{ animationDelay: `${index * 0.2}s` }}
+                >
+                  {/* Timeline Dot */}
+                  <div className="hidden md:block absolute -left-[4.65rem] top-8 w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-full border-4 border-background shadow-lg group-hover:scale-125 transition-transform duration-300"></div>
+                  
+                  {/* Decorative Background */}
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-all duration-500"></div>
+                  
+                  <div className="relative z-10">
+                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
+                      <div className="space-y-2">
+                        <h3 className="text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors">
+                          {exp.role}
+                        </h3>
+                        <div className="flex items-center gap-2">
+                          <div className="h-1 w-1 bg-primary rounded-full"></div>
+                          <p className="text-lg text-primary font-semibold">{exp.company}</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-lg border border-primary/20">
+                        <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
+                        <span className="text-muted-foreground font-medium">{exp.period}</span>
+                      </div>
+                    </div>
+                    
+                    <ul className="space-y-3 mt-6">
+                      {exp.points.map((point, idx) => (
+                        <li key={idx} className="flex gap-4 group/item">
+                          <span className="text-primary mt-1.5 text-xl group-hover/item:scale-125 transition-transform">▹</span>
+                          <span className="text-muted-foreground text-base leading-relaxed group-hover/item:text-foreground transition-colors">
+                            {point}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <span className="text-muted-foreground text-sm md:text-base">{exp.period}</span>
-                </div>
-                <ul className="space-y-2 mt-4">
-                  {exp.points.map((point, idx) => (
-                    <li key={idx} className="text-muted-foreground flex gap-3">
-                      <span className="text-primary mt-1.5">▹</span>
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-            ))}
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-24 px-6 bg-card">
-        <div className="container mx-auto max-w-6xl">
-          <span className="text-primary text-sm font-semibold tracking-wider uppercase">— Portfolio</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-12">Featured Projects</h2>
+      <section id="projects" className="relative py-24 px-6 bg-card overflow-hidden">
+        {/* Background Decorations */}
+        <div className="absolute top-20 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+        
+        <div className="container mx-auto max-w-6xl relative z-10">
+          <div className="inline-block mb-4">
+            <span className="text-primary text-sm font-bold tracking-[0.2em] uppercase bg-primary/10 px-4 py-2 rounded-full border border-primary/20">
+              Portfolio
+            </span>
+          </div>
+          <h2 className="text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+            Featured Projects
+          </h2>
+          <div className="h-1 w-24 bg-gradient-to-r from-primary to-accent rounded-full mb-12"></div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project, index) => (
               <Card 
                 key={index} 
-                className="p-6 bg-secondary border-border hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 group cursor-pointer"
+                className="relative p-6 bg-gradient-to-br from-secondary to-secondary/50 border-2 border-border hover:border-primary/50 shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 group cursor-pointer animate-fade-in-scale overflow-hidden"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="p-3 bg-primary/10 rounded-lg text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-                    {project.icon}
+                {/* Hover Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="p-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl text-primary group-hover:from-primary group-hover:to-accent group-hover:text-primary-foreground group-hover:scale-110 transition-all duration-300 shadow-lg">
+                      {project.icon}
+                    </div>
+                    {project.status && (
+                      <span className="text-xs font-semibold bg-gradient-to-r from-accent/30 to-accent/20 text-accent px-3 py-1.5 rounded-full border border-accent/30 animate-pulse">
+                        {project.status}
+                      </span>
+                    )}
                   </div>
-                  {project.status && (
-                    <span className="text-xs bg-accent/20 text-accent px-3 py-1 rounded-full">{project.status}</span>
-                  )}
+                  
+                  <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors leading-tight">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-primary/80 font-medium mb-3">{project.subtitle}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4 min-h-[3rem]">
+                    {project.description}
+                  </p>
+                  
+                  <div className="pt-4 border-t border-border/50">
+                    <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
+                      {project.tech}
+                    </p>
+                  </div>
+                  
+                  {/* Bottom Accent Line */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
                 </div>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
-                <p className="text-sm text-muted-foreground mb-3">{project.subtitle}</p>
-                <p className="text-sm text-foreground mb-4">{project.description}</p>
-                <p className="text-xs text-muted-foreground">{project.tech}</p>
               </Card>
             ))}
           </div>
@@ -301,24 +413,50 @@ const Index = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-24 px-6">
-        <div className="container mx-auto max-w-6xl">
-          <span className="text-primary text-sm font-semibold tracking-wider uppercase">— Technical Skills</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-12">Expertise & Tools</h2>
+      <section id="skills" className="relative py-24 px-6 overflow-hidden">
+        {/* Background Grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:64px_64px]"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+        
+        <div className="container mx-auto max-w-6xl relative z-10">
+          <div className="inline-block mb-4">
+            <span className="text-primary text-sm font-bold tracking-[0.2em] uppercase bg-primary/10 px-4 py-2 rounded-full border border-primary/20">
+              Technical Skills
+            </span>
+          </div>
+          <h2 className="text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+            Expertise & Tools
+          </h2>
+          <div className="h-1 w-24 bg-gradient-to-r from-primary to-accent rounded-full mb-12"></div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {Object.entries(skills).map(([category, items]) => (
-              <Card key={category} className="p-6 bg-card border-border">
-                <h3 className="text-xl font-bold mb-4 text-primary">{category}</h3>
-                <div className="flex flex-wrap gap-2">
-                  {items.map((skill, idx) => (
-                    <span 
-                      key={idx}
-                      className="px-3 py-1 bg-secondary text-foreground text-sm rounded-full border border-border hover:border-primary transition-colors"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {Object.entries(skills).map(([category, items], index) => (
+              <Card 
+                key={category} 
+                className="relative p-6 bg-gradient-to-br from-card to-card/50 border-2 border-border hover:border-primary/50 shadow-lg hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 group animate-fade-in overflow-hidden"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {/* Decorative Elements */}
+                <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-all duration-500"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="h-10 w-1.5 bg-gradient-to-b from-primary to-accent rounded-full"></div>
+                    <h3 className="text-xl font-bold text-primary group-hover:text-accent transition-colors">
+                      {category}
+                    </h3>
+                  </div>
+                  
+                  <div className="flex flex-wrap gap-2">
+                    {items.map((skill, idx) => (
+                      <span 
+                        key={idx}
+                        className="px-3 py-2 bg-secondary/50 backdrop-blur-sm text-foreground text-sm font-medium rounded-lg border border-border hover:border-primary hover:bg-primary/10 hover:text-primary hover:scale-105 transition-all duration-300 cursor-default shadow-sm"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </Card>
             ))}
@@ -327,66 +465,145 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 px-6 bg-card">
-        <div className="container mx-auto max-w-4xl text-center">
-          <span className="text-primary text-sm font-semibold tracking-wider uppercase">— Get In Touch</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-8">Let's Connect</h2>
-          <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+      <section id="contact" className="relative py-24 px-6 bg-card overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-10 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        </div>
+        
+        <div className="container mx-auto max-w-4xl text-center relative z-10">
+          <div className="inline-block mb-4">
+            <span className="text-primary text-sm font-bold tracking-[0.2em] uppercase bg-primary/10 px-4 py-2 rounded-full border border-primary/20">
+              Get In Touch
+            </span>
+          </div>
+          <h2 className="text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+            Let's Connect
+          </h2>
+          <div className="h-1 w-24 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mb-8"></div>
+          
+          <p className="text-lg md:text-xl text-muted-foreground mb-16 max-w-2xl mx-auto leading-relaxed">
+            I'm always open to discussing <span className="text-primary font-semibold">new projects</span>, creative ideas, or opportunities to be part of your visions.
           </p>
           
-          <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-            <Card className="p-6 bg-secondary border-border hover:border-primary/50 transition-all">
-              <Phone className="w-8 h-8 text-primary mx-auto mb-4" />
-              <h3 className="font-semibold mb-2">Phone</h3>
-              <a href="tel:9019987667" className="text-muted-foreground hover:text-primary transition-colors">
-                9019987667
-              </a>
+          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            <Card className="group relative p-8 bg-gradient-to-br from-secondary to-secondary/50 border-2 border-border hover:border-primary/50 shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 overflow-hidden">
+              <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-all duration-500"></div>
+              
+              <div className="relative z-10">
+                <div className="p-4 bg-primary/10 rounded-2xl inline-block mb-4 group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-300">
+                  <Phone className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="font-bold text-lg mb-3">Phone</h3>
+                <a href="tel:9019987667" className="text-muted-foreground hover:text-primary transition-colors text-lg font-medium">
+                  9019987667
+                </a>
+              </div>
             </Card>
             
-            <Card className="p-6 bg-secondary border-border hover:border-primary/50 transition-all">
-              <Mail className="w-8 h-8 text-primary mx-auto mb-4" />
-              <h3 className="font-semibold mb-2">Email</h3>
-              <a href="mailto:sahanahc6s@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
-                sahanahc6s@gmail.com
-              </a>
+            <Card className="group relative p-8 bg-gradient-to-br from-secondary to-secondary/50 border-2 border-border hover:border-primary/50 shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 overflow-hidden">
+              <div className="absolute -top-10 -right-10 w-32 h-32 bg-accent/10 rounded-full blur-2xl group-hover:bg-accent/20 transition-all duration-500"></div>
+              
+              <div className="relative z-10">
+                <div className="p-4 bg-accent/10 rounded-2xl inline-block mb-4 group-hover:scale-110 group-hover:bg-accent/20 transition-all duration-300">
+                  <Mail className="w-8 h-8 text-accent" />
+                </div>
+                <h3 className="font-bold text-lg mb-3">Email</h3>
+                <a href="mailto:sahanahc6s@gmail.com" className="text-muted-foreground hover:text-accent transition-colors text-base font-medium break-all">
+                  sahanahc6s@gmail.com
+                </a>
+              </div>
             </Card>
             
-            <Card className="p-6 bg-secondary border-border hover:border-primary/50 transition-all">
-              <Github className="w-8 h-8 text-primary mx-auto mb-4" />
-              <h3 className="font-semibold mb-2">GitHub</h3>
-              <a 
-                href="https://github.com/sahanahc6s" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1"
-              >
-                github.com/sahanahc6s
-                <ExternalLink className="w-3 h-3" />
-              </a>
+            <Card className="group relative p-8 bg-gradient-to-br from-secondary to-secondary/50 border-2 border-border hover:border-primary/50 shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 overflow-hidden">
+              <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-all duration-500"></div>
+              
+              <div className="relative z-10">
+                <div className="p-4 bg-primary/10 rounded-2xl inline-block mb-4 group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-300">
+                  <Github className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="font-bold text-lg mb-3">GitHub</h3>
+                <a 
+                  href="https://github.com/sahanahc6s" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2 text-base font-medium"
+                >
+                  github.com/sahanahc6s
+                  <ExternalLink className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </a>
+              </div>
             </Card>
             
-            <Card className="p-6 bg-secondary border-border hover:border-primary/50 transition-all">
-              <Linkedin className="w-8 h-8 text-primary mx-auto mb-4" />
-              <h3 className="font-semibold mb-2">LinkedIn</h3>
-              <a 
-                href="https://linkedin.com/in/sahanahc" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1"
-              >
-                linkedin.com/in/sahanahc
-                <ExternalLink className="w-3 h-3" />
-              </a>
+            <Card className="group relative p-8 bg-gradient-to-br from-secondary to-secondary/50 border-2 border-border hover:border-primary/50 shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 overflow-hidden">
+              <div className="absolute -top-10 -right-10 w-32 h-32 bg-accent/10 rounded-full blur-2xl group-hover:bg-accent/20 transition-all duration-500"></div>
+              
+              <div className="relative z-10">
+                <div className="p-4 bg-accent/10 rounded-2xl inline-block mb-4 group-hover:scale-110 group-hover:bg-accent/20 transition-all duration-300">
+                  <Linkedin className="w-8 h-8 text-accent" />
+                </div>
+                <h3 className="font-bold text-lg mb-3">LinkedIn</h3>
+                <a 
+                  href="https://linkedin.com/in/sahanahc" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-accent transition-colors inline-flex items-center gap-2 text-base font-medium"
+                >
+                  linkedin.com/in/sahanahc
+                  <ExternalLink className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </a>
+              </div>
             </Card>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6 border-t border-border">
-        <div className="container mx-auto text-center text-muted-foreground">
-          <p>&copy; 2025 Sahana HC. All rights reserved.</p>
+      <footer className="relative py-12 px-6 border-t border-border/50 bg-gradient-to-b from-background to-card overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px]"></div>
+        
+        <div className="container mx-auto text-center relative z-10">
+          <div className="mb-6">
+            <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2">
+              Sahana HC
+            </h3>
+            <p className="text-sm text-muted-foreground">Java Full Stack Developer</p>
+          </div>
+          
+          <div className="flex justify-center gap-4 mb-6">
+            <a 
+              href="https://github.com/sahanahc6s" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="p-3 rounded-lg bg-card border border-border hover:border-primary text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110"
+            >
+              <Github className="w-5 h-5" />
+            </a>
+            <a 
+              href="https://linkedin.com/in/sahanahc" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="p-3 rounded-lg bg-card border border-border hover:border-primary text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110"
+            >
+              <Linkedin className="w-5 h-5" />
+            </a>
+            <a 
+              href="mailto:sahanahc6s@gmail.com" 
+              className="p-3 rounded-lg bg-card border border-border hover:border-primary text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110"
+            >
+              <Mail className="w-5 h-5" />
+            </a>
+          </div>
+          
+          <div className="h-px w-32 bg-gradient-to-r from-transparent via-border to-transparent mx-auto mb-6"></div>
+          
+          <p className="text-muted-foreground text-sm">
+            &copy; 2025 Sahana HC. All rights reserved.
+          </p>
+          <p className="text-muted-foreground/60 text-xs mt-2">
+            Built with passion and dedication
+          </p>
         </div>
       </footer>
     </div>
