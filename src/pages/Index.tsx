@@ -1,11 +1,75 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Mail, Phone, Github, Linkedin, ExternalLink, Code2, Database, Server, Cpu } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Mail, Phone, Github, Linkedin, ExternalLink, Code2, Database, Server, Cpu, Send, User } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import emailjs from "@emailjs/browser";
+import { toast } from "@/hooks/use-toast";
+import { useState } from "react";
 import profileImage from "@/assets/profile-sahana.jpg";
 
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
+  email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
+  message: z.string().trim().min(1, "Message is required").max(1000, "Message must be less than 1000 characters"),
+});
+
+type ContactFormData = z.infer<typeof contactSchema>;
+
 const Index = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+  });
+
+  const onSubmit = async (data: ContactFormData) => {
+    setIsSubmitting(true);
+    
+    try {
+      // Initialize EmailJS with public key
+      emailjs.init("SCPqh6Wu8vQVnEBr9");
+      
+      // Send email using EmailJS
+      await emailjs.send(
+        "service_xunuul9", // Service ID
+        "template_sjbqrhj", // Template ID
+        {
+          from_name: data.name,
+          from_email: data.email,
+          message: data.message,
+          to_email: "sahanahc6s@gmail.com",
+        }
+      );
+
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+      
+      reset();
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      toast({
+        title: "Failed to send message",
+        description: "Please try again or contact me directly via email.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const projects = [
@@ -483,9 +547,88 @@ const Index = () => {
           </h2>
           <div className="h-1 w-24 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mb-8"></div>
           
-          <p className="text-lg md:text-xl text-muted-foreground mb-16 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
             I'm always open to discussing <span className="text-primary font-semibold">new projects</span>, creative ideas, or opportunities to be part of your visions.
           </p>
+          
+          {/* Contact Form */}
+          <Card className="relative p-8 md:p-10 bg-gradient-to-br from-secondary to-card border-2 border-border shadow-2xl mb-12 max-w-2xl mx-auto overflow-hidden">
+            <div className="absolute -top-10 -left-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl"></div>
+            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl"></div>
+            
+            <form onSubmit={handleSubmit(onSubmit)} className="relative z-10 space-y-6 text-left">
+              <div className="space-y-2">
+                <label htmlFor="name" className="text-sm font-semibold text-foreground flex items-center gap-2">
+                  <User className="w-4 h-4 text-primary" />
+                  Name
+                </label>
+                <Input
+                  id="name"
+                  placeholder="Your name"
+                  {...register("name")}
+                  className="bg-background/50 border-2 border-border focus:border-primary transition-colors"
+                  disabled={isSubmitting}
+                />
+                {errors.name && (
+                  <p className="text-sm text-destructive">{errors.name.message}</p>
+                )}
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="email" className="text-sm font-semibold text-foreground flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-accent" />
+                  Email
+                </label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="your.email@example.com"
+                  {...register("email")}
+                  className="bg-background/50 border-2 border-border focus:border-accent transition-colors"
+                  disabled={isSubmitting}
+                />
+                {errors.email && (
+                  <p className="text-sm text-destructive">{errors.email.message}</p>
+                )}
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="message" className="text-sm font-semibold text-foreground flex items-center gap-2">
+                  <Send className="w-4 h-4 text-primary" />
+                  Message
+                </label>
+                <Textarea
+                  id="message"
+                  placeholder="Your message..."
+                  rows={6}
+                  {...register("message")}
+                  className="bg-background/50 border-2 border-border focus:border-primary transition-colors resize-none"
+                  disabled={isSubmitting}
+                />
+                {errors.message && (
+                  <p className="text-sm text-destructive">{errors.message.message}</p>
+                )}
+              </div>
+
+              <Button
+                type="submit"
+                className="w-full bg-gradient-to-r from-primary to-accent text-white font-bold py-6 rounded-lg shadow-lg hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <span className="flex items-center gap-2">
+                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                    Sending...
+                  </span>
+                ) : (
+                  <span className="flex items-center gap-2">
+                    <Send className="w-5 h-5" />
+                    Send Message
+                  </span>
+                )}
+              </Button>
+            </form>
+          </Card>
           
           <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             <Card className="group relative p-8 bg-gradient-to-br from-secondary to-secondary/50 border-2 border-border hover:border-primary/50 shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 overflow-hidden">
