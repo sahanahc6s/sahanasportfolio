@@ -9,7 +9,7 @@ import * as z from "zod";
 import emailjs from "@emailjs/browser";
 import { toast } from "@/hooks/use-toast";
 import { useState } from "react";
-import profileImage from "@/assets/profile-sahana.jpg";
+import profileImage from "@/assets/profile-hero.png";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -252,11 +252,12 @@ const Index = () => {
                 <img 
                   src={profileImage} 
                   alt="Sahana HC" 
-                  className="relative w-80 h-80 md:w-[450px] md:h-[450px] rounded-2xl object-cover shadow-2xl group-hover:scale-105 transition-transform duration-500"
+                  className="relative w-80 h-80 md:w-[450px] md:h-[450px] rounded-lg object-cover shadow-2xl group-hover:scale-105 transition-transform duration-500"
+                  style={{ clipPath: 'inset(0 round 12px)' }}
                 />
                 
                 {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent rounded-2xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent rounded-lg"></div>
                 
                 {/* Floating Badge */}
                 <div className="absolute -bottom-6 -right-6 bg-card border-2 border-primary rounded-2xl px-6 py-4 shadow-xl backdrop-blur-sm">
