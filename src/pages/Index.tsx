@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, Github, Linkedin, ExternalLink, Code2, Database, Server, Cpu, Send, User } from "lucide-react";
+import { Mail, Phone, Github, Linkedin, ExternalLink, Code2, Database, Server, Cpu, Send, User, Download } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -161,13 +161,22 @@ const Index = () => {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-bold text-primary">Sahana HC</h2>
-            <div className="hidden md:flex gap-8">
+            <div className="hidden md:flex items-center gap-8">
               <button onClick={() => scrollToSection('home')} className="text-muted-foreground hover:text-foreground transition-colors">Home</button>
               <button onClick={() => scrollToSection('about')} className="text-muted-foreground hover:text-foreground transition-colors">About</button>
               <button onClick={() => scrollToSection('experience')} className="text-muted-foreground hover:text-foreground transition-colors">Experience</button>
               <button onClick={() => scrollToSection('projects')} className="text-muted-foreground hover:text-foreground transition-colors">Projects</button>
               <button onClick={() => scrollToSection('skills')} className="text-muted-foreground hover:text-foreground transition-colors">Skills</button>
               <button onClick={() => scrollToSection('contact')} className="text-muted-foreground hover:text-foreground transition-colors">Contact</button>
+              <a 
+                href="https://drive.google.com/uc?export=download&id=1-7APxyDuxwC_xjRlO8eKNwkRYoZCT4cq"
+                download
+              >
+                <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
+                  <Download className="w-4 h-4 mr-1" />
+                  Download Resume
+                </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -228,6 +237,18 @@ const Index = () => {
               >
                 Contact Me
               </Button>
+              <a 
+                href="https://drive.google.com/uc?export=download&id=1-7APxyDuxwC_xjRlO8eKNwkRYoZCT4cq"
+                download
+              >
+                <Button 
+                  variant="outline"
+                  className="border-2 border-accent hover:border-accent text-accent hover:text-accent-foreground bg-accent/10 hover:bg-accent px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105"
+                >
+                  <Download className="mr-2 w-5 h-5" />
+                  Download Resume
+                </Button>
+              </a>
             </div>
 
             <div className="flex items-center gap-6 pt-6">
