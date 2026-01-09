@@ -89,6 +89,13 @@ const Index = () => {
       icon: <Server className="w-6 h-6" />
     },
     {
+      title: "Go User API",
+      subtitle: "Backend REST API Service",
+      tech: "Go, GoFiber, PostgreSQL, SQLC, pgx, Zap, Validator",
+      description: "RESTful API to manage users with dynamic age calculation and clean backend architecture.",
+      icon: <Server className="w-6 h-6" />
+    },
+    {
       title: "Movie CRUD Web Application",
       subtitle: "Aug–Sep 2025",
       tech: "Spring Boot, Thymeleaf, HTML, CSS, Java",
