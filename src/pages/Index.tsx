@@ -82,6 +82,13 @@ const Index = () => {
       icon: <Code2 className="w-6 h-6" />
     },
     {
+      title: "Audio Visualizer with Live Transcription",
+      subtitle: "Real-Time Full Stack Application",
+      tech: "Java, Spring Boot, WebSockets, HTML, CSS, JavaScript",
+      description: "Real-time audio visualization and live transcription using WebSockets for continuous frontend-backend communication.",
+      icon: <Server className="w-6 h-6" />
+    },
+    {
       title: "Movie CRUD Web Application",
       subtitle: "Aug–Sep 2025",
       tech: "Spring Boot, Thymeleaf, HTML, CSS, Java",
