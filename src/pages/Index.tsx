@@ -73,14 +73,13 @@ const Index = () => {
   };
 
   const projects = [
-    {
-      title: "ShopVerse",
-      subtitle: "Full Stack Web Application",
-      status: "Ongoing",
-      tech: "Java, Spring Boot, REST API, Hibernate, Oracle SQL, React, HTML, CSS, JavaScript",
-      description: "E-commerce platform with CRUD operations and RESTful APIs.",
-      icon: <Code2 className="w-6 h-6" />
-    },
+{
+  title: "EliteMart - Spring Boot E-Commerce REST API",
+  subtitle: "Backend REST API",
+  tech: "Java, Spring Boot, Spring Security, JWT, Spring Data JPA, MySQL, Maven, Razorpay, Swagger",
+  description: "Backend e-commerce REST API with JWT authentication, role-based access (Admin/Seller/User), product management, cart system, order placement and Razorpay payment integration.",
+  icon: <Code2 className="w-6 h-6" />
+},
     {
       title: "Audio Visualizer with Live Transcription",
       subtitle: "Real-Time Full Stack Application",
