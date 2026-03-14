@@ -237,7 +237,7 @@ const Index = () => {
                 Contact Me
               </Button>
               <a 
-                href="https://drive.google.com/uc?export=download&id=1-7APxyDuxwC_xjRlO8eKNwkRYoZCT4cq"
+                href="https://drive.google.com/file/d/1igYNxd7IIhZPWKt4PC2LadgXM07K-1l7/view?usp=drivesdk"
                 download
               >
                 <Button 
