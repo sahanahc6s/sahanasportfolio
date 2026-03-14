@@ -168,7 +168,7 @@ const Index = () => {
               <button onClick={() => scrollToSection('skills')} className="text-muted-foreground hover:text-foreground transition-colors">Skills</button>
               <button onClick={() => scrollToSection('contact')} className="text-muted-foreground hover:text-foreground transition-colors">Contact</button>
               <a 
-                href="https://drive.google.com/uc?export=download&id=1-7APxyDuxwC_xjRlO8eKNwkRYoZCT4cq"
+                href="https://drive.google.com/file/d/1igYNxd7IIhZPWKt4PC2LadgXM07K-1l7/view?usp=drivesdk"
                 download
               >
                 <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
